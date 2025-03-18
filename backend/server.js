@@ -6,12 +6,12 @@ import connectCloudinary from "./config/cloudinary.js";
 import adminRouter from "./routes/adminRoute.js";
 
 const app = express();
-const port = process.env.PORT || 4000;
 connectDb();
 connectCloudinary();
 
 app.use(express.json());
 app.use(cors());
+const port = process.env.PORT || 5000;
 
 // api end points
 
