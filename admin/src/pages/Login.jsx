@@ -22,6 +22,16 @@ const Login = () => {
         if (data.success) {
           localStorage.setItem("aToken", data.token);
           setAToken(data.token);
+          toast.success("Login Successful", {
+            style: {
+              background: "#34D399",
+              color: "#fff",
+              padding: "12px 16px",
+              borderRadius: "8px",
+              fontWeight: "bold",
+            },
+          });
+          
         } else {
           toast.error(data.message, {
             style: {

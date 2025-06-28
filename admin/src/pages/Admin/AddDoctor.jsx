@@ -3,9 +3,9 @@ import { assets } from "../../assets/assets";
 
 const AddDoctor = () => {
   return (
-    <form>
-      <p>Add Doctor</p>
-      <div>
+    <form className="m-5 w-full">
+      <p className="mb-3 text-lg font-medium ">Add Doctor</p>
+      <div className="bg-white px-8 py-8 rounded w-full max-w-4xl max-h-[80vh] overflow-y-scroll">
         <div>
           <label htmlFor="doc-img">
             <img src={assets.upload_area} alt="Doctor" />
@@ -55,7 +55,38 @@ const AddDoctor = () => {
               <input type="number" placeholder="Fees" required />
             </div>
           </div>
+
+          <div>
+            <div>
+              <p>Doctor Specialization</p>
+              <select name="" id="">
+                <option value="General physician">General physician</option>
+                <option value="Dermatologist">Dermatologist</option>
+                <option value="Neurologist">Neurologist</option>
+                <option value="Pediatrician">Pediatrician</option>
+                <option value="Gastroenterologist">Gastroenterologist</option>
+                <option value="Gynecologist">Gynecologist</option>
+              </select>
+            </div>
+            <div>
+              <p> Education</p>
+              <input type="text" placeholder="Education" required />
+            </div>
+
+            <div>
+              <p>Address</p>
+              <input type="text" placeholder="Address1" required />
+              <input type="text" placeholder="Address2" required />
+            </div>
+          </div>
         </div>
+
+        <div>
+          <p> Abour Doctor</p>
+          <textarea placeholder="Write about doctor" rows={5}></textarea>
+        </div>
+
+        <button> Add Doctor</button>
       </div>
     </form>
   );
