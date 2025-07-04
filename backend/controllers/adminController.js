@@ -111,3 +111,14 @@ try {
   res.json({ success: false, message: error.message });
 }
 }
+
+// API to get all doctors
+export const allDoctors = async (req, res) => {
+  try {
+    const doctors = await doctorModel.find({}).select("-password");
+    res.json({ success: true, doctors });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+}
