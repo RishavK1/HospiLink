@@ -4,6 +4,7 @@ import dotenv from 'dotenv/config'
 import connectDb from "./config/mongoDb.js";
 import connectCloudinary from "./config/cloudinary.js";
 import adminRouter from "./routes/adminRoute.js";
+import doctorRouter from "./routes/doctorRoute.js";
 
 const app = express();
 connectDb();
@@ -11,11 +12,13 @@ connectCloudinary();
 
 app.use(express.json());
 app.use(cors());
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 // api end points
 
-app.use('/api/admin', adminRouter)
+app.use('/api/admin', adminRouter);
+app.use('/api/doctor', doctorRouter);
+
 
 app.get("/", (req, res) => {
     res.send("API is working Fine");

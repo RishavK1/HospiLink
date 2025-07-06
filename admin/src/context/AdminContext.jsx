@@ -2,7 +2,6 @@ import { createContext, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-
 export const AdminContext = createContext();
 const AdminContextProvider = (props) => {
   const [aToken, setAToken] = useState(
@@ -23,15 +22,33 @@ const AdminContextProvider = (props) => {
         }
       );
 
-      if(data.success) {
-      setDoctors(data.doctors);
-      console.log("Doctors fetched successfully:", data.doctors);
-      }
-      else{
+      if (data.success) {
+        setDoctors(data.doctors);
+        console.log("Doctors fetched successfully:", data.doctors);
+      } else {
         toast.error(data.message);
       }
     } catch (error) {
       console.error("Error fetching doctors:", error);
+    }
+  };
+
+  const changeAvailability = async (docId) => {
+    try {
+      const { data } = await axios.post(
+        backendUrl + "/api/admin/change-availability",
+        { docId },
+        { headers: { aToken } }
+      );
+      if (data.success) {
+        toast.success(data.message);
+        getAllDoctors();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
     }
   };
   const value = {
@@ -39,7 +56,9 @@ const AdminContextProvider = (props) => {
     setAToken,
     backendUrl,
     doctors,
-    getAllDoctors,};
+    getAllDoctors,
+    changeAvailability,
+  };
 
   return (
     <AdminContext.Provider value={value}>
