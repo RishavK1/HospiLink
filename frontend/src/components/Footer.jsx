@@ -7,9 +7,9 @@ const Footer = () => {
       <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm">
         {/* ----------------Left Section*------------------ */}
         <div>
-          <img className="mb-5 w-40" src={assets.mainlogo} />
+          <img className="mb-5 w-40" src={assets.logo} />
           <p className="w-full md:w-2/3 text-gray-600 leading-6">
-            HospiLink is your trusted platform for seamless healthcare
+            Prescripto is your trusted platform for seamless healthcare
             solutions. We connect patients with experienced doctors for
             hassle-free consultations. Our mission is to enhance accessibility
             to quality medical care. Book appointments, consult specialists, and
@@ -40,7 +40,7 @@ const Footer = () => {
 
       <div>
         <hr />
-        <p className='py-5 text-sm text-center'>Copyright 2025@ HospiLink - All right reserved</p>
+        <p className='py-5 text-sm text-center'>Copyright 2025@ Prescripto - All right reserved</p>
       </div>
     </div>
   );
